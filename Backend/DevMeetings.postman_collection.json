@@ -1,0 +1,81 @@
+{
+  "info": {
+    "name": "DevMeetings API",
+    "description": "REST API for development team meeting management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:4000/api"
+    }
+  ],
+  "item": [
+    {
+      "name": "Get All Groups",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/groups"
+      }
+    },
+    {
+      "name": "Get Meetings By Group",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/meetings/group/1"
+      }
+    },
+    {
+      "name": "Get Meeting By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/meetings/1"
+      }
+    },
+    {
+      "name": "Create Meeting",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"group_id\": 1,\n  \"start_time\": \"2026-12-01T10:00\",\n  \"end_time\": \"2026-12-01T11:00\",\n  \"description\": \"Sprint review\",\n  \"room\": \"Blue Room\"\n}"
+        },
+        "url": "{{baseUrl}}/meetings"
+      }
+    },
+    {
+      "name": "Update Meeting",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"group_id\": 1,\n  \"start_time\": \"2026-12-01T10:00\",\n  \"end_time\": \"2026-12-01T12:00\",\n  \"description\": \"Sprint review updated\",\n  \"room\": \"Blue Room\"\n}"
+        },
+        "url": "{{baseUrl}}/meetings/1"
+      }
+    },
+    {
+      "name": "Delete Meeting",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/meetings/1"
+      }
+    }
+  ]
+}
